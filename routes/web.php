@@ -7,14 +7,16 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Auth\ResetPassword;
 use App\Livewire\Auth\VerifyEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use App\Livewire\Welcome;
+use App\Livewire\Home;
+use App\Livewire\Roadmap;
 
-Route::get('/', Welcome::class)
-    ->middleware(['auth', 'verified'])
+Route::get('/', Home::class)
     ->name('home');
 
-// Authentication Routes
+Route::get('roadmap', Roadmap::class)
+    ->name('roadmap');
 
+// Authentication Routes
 Route::get('login', Login::class)
     ->middleware('guest')
     ->name('login');

@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
-class Welcome extends Component
+class Home extends Component
 {
     use Toast;
 
@@ -61,7 +61,7 @@ class Welcome extends Component
 
     public function render()
     {
-        return view('livewire.welcome', [
+        return view('livewire.home', [
             'users' => $this->users(),
             'headers' => $this->headers()
         ]);

@@ -45,6 +45,8 @@
                         </x-slot:actions>
                     </x-list-item>
                 @endif
+                <x-menu-item title="Home" icon="o-home" link="{{ route('home') }}" />
+                <x-menu-item title="Roadmap" icon="o-bolt" link="{{ route('roadmap') }}" />
                 @guest
                     <x-menu-item title="Login" icon="o-lock-closed" link="{{ route('login') }}" />
                     <x-menu-item title="Register" icon="o-plus" link="{{ route('register') }}" />
