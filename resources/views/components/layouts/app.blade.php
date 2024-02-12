@@ -13,7 +13,13 @@
 <body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
     <x-nav sticky class="lg:hidden">
         <x-slot:brand>
-            <x-app-brand />
+            {{-- <x-app-brand /> --}}
+            <span class="font-extrabold text-4xl text-primary">
+                <a href="/" wire:navigate>
+                    <x-icon name="o-bug-ant" class="w-8 h-8" />
+                    ROADMAP
+                </a>
+            </span>
         </x-slot:brand>
         <x-slot:actions>
             <label for="main-drawer" class="lg:hidden mr-3">
@@ -23,7 +29,13 @@
     </x-nav>
     <x-main full-width>
         <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-100 lg:bg-inherit">
-            <x-app-brand class="p-5 pt-3" />
+            <span class="font-extrabold text-4xl text-primary">
+                <a href="/" wire:navigate>
+                    <x-icon name="o-bug-ant" class="w-8 h-8" />
+                    ROADMAP
+                </a>
+            </span>
+            {{-- <x-app-brand class="p-5 pt-3" /> --}}
             <x-menu activate-by-route>
                 @if ($user = auth()->user())
                     <x-list-item :item="$user" sub-value="username" no-separator no-hover

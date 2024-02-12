@@ -1,5 +1,5 @@
 <div>
-    <x-header title="Roadmap" separator progress-indicator>
+    <x-header title="We need your feedbacks and suggestions !" separator progress-indicator>
     </x-header>
     <x-drawer wire:model="timelineDrawer" right class="lg:w-1/3">
 

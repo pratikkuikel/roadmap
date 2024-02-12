@@ -37,7 +37,7 @@ class Roadmap extends Component
         $issue->upvotes_count = $issue->upvotes_count++;
         $issue->save();
         Vote::create([
-            'issue_id' => $issue,
+            'issue_id' => $issue->id,
             'user_id' => auth()->user()->id,
             'type' => 'upvote'
         ]);
@@ -50,7 +50,7 @@ class Roadmap extends Component
         $issue->downvotes_count = $issue->downvotes_count++;
         $issue->save();
         Vote::create([
-            'issue_id' => $issue,
+            'issue_id' => $issue->id,
             'user_id' => auth()->user()->id,
             'type' => 'downvote'
         ]);
@@ -63,7 +63,7 @@ class Roadmap extends Component
         $issue->fire_count = $issue->fire_count++;
         $issue->save();
         Vote::create([
-            'issue_id' => $issue,
+            'issue_id' => $issue->id,
             'user_id' => auth()->user()->id,
             'type' => 'fire'
         ]);

@@ -1,5 +1,5 @@
 <div>
-    <x-header title="Roadmap" separator progress-indicator>
+    <x-header title="We need your feedbacks and suggestions !" separator progress-indicator>
     </x-header>
     <x-card title="ISSUE : {{ $issue->title }}" shadow separator>
         <div>

@@ -10,6 +10,7 @@ use App\Livewire\Home;
 use App\Livewire\Roadmap;
 use App\Models\Tag;
 use App\Models\Timeline;
+use App\Models\Vote;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,7 @@ Route::get('/', Home::class)
 
 Route::get('/timeline', function () {
     // return Timeline::all();
-    return Tag::all();
+    return Vote::all();
 });
 
 Route::get('roadmap', Roadmap::class)
