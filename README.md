@@ -1,23 +1,36 @@
-<p align="center"><img width="200" src="https://github.com/robsontenorio/mary-ui.com/blob/main/public/mary.png?raw=true""></p>
+## Public facing roadmap platform to get user feedbacks on product features !
 
-## About Mary UI Auth Template
-This template saves your time by providing basic authentication features out of the box !
+#### Taking feedbacks and suggestions from your userbase has never been this easier !
 
-Based on [Mary-ui](https://mary-ui.com)
+Welcome to the roadmap, Inspired by [Rowy Roadmap](https://roadmap.rowy.io/roadmap)
 
-![1707653872173](image/README/1707653872173.png)
+#### Features !
+- Filamentphp based admin-panel to manage all the issues.
 
-#### Includes ?
-- Login
-- Register
-- Email verification
-- Forgot password
-- Reset password
+![1707758434197](image/README/1707758434197.png)
 
+- upvotes, downvotes and comments !
+
+![1707758483060](image/README/1707758483060.png)
+
+- Issue Timeline to track issue movement
+
+![1707758561382](image/README/1707758561382.png)
+
+- Users can comment in the issue
+
+![1707758611036](image/README/1707758611036.png)
 
 #### How to use it ?
-Just create a repository using this template or fork it.
+- Fork it or download it
+- Host on your own
+- Customize anything you want
+- Build your product with your user feedbacks
 
+#### Based on
+- [Mary-ui](https://mary-ui.com)
+- [Livewire](https://livewire.laravel.com)
+- [Filamentphp](https://filamentphp.com)
 
 ## Contributing
 
