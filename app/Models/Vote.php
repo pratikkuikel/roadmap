@@ -9,6 +9,10 @@ class Vote extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+
+    ];
+
     public function issue()
     {
         return $this->belongsTo(Issue::class);

@@ -6,17 +6,20 @@ use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Mary\Traits\Toast;
-use Illuminate\Support\Str;
 
 class ResetPassword extends Component
 {
     use Toast;
 
     public ?string $token;
+
     public ?string $email;
+
     public ?string $password;
+
     public ?string $password_confirmation;
 
     public function mount()
@@ -42,7 +45,7 @@ class ResetPassword extends Component
             ],
             function (User $user, string $password) {
                 $user->forceFill([
-                    'password' => Hash::make($password)
+                    'password' => Hash::make($password),
                 ])->setRememberToken(Str::random(60));
 
                 $user->save();

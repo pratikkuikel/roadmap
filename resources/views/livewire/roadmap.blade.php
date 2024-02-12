@@ -1,21 +1,22 @@
 <div>
     <x-header title="Roadmap" separator progress-indicator>
     </x-header>
-    <x-tabs selected="users-tab">
-        <x-tab name="users-tab" label="Users" icon="o-users">
-            @php
-                $users = App\Models\User::take(10)->get();
-            @endphp
+    <x-drawer wire:model="timelineDrawer" right class="lg:w-1/3">
 
-            @foreach ($users as $user)
-                <x-item :data="$user" />
+        @if ($timeline != null)
+            @foreach ($timeline as $step)
+                <x-timeline-item title="{{ $step->event }}" subtitle="{{ $step->created_at->format('Y-M-d') }}" />
             @endforeach
-        </x-tab>
-        <x-tab name="tricks-tab" label="Tricks" icon="o-sparkles">
-            <div>Tricks</div>
-        </x-tab>
-        <x-tab name="musics-tab" label="Musics" icon="o-musical-note">
-            <div>Musics</div>
-        </x-tab>
+        @endif
+
+    </x-drawer>
+    <x-tabs selected="{{ $selectedTab }}">
+        @foreach ($tabs as $tab)
+            <x-tab name="{{ $tab->label }}" label="{{ $tab->label }}">
+                @foreach ($tab->issues as $issue)
+                    <div> <x-issue :data="$issue" /> </div>
+                @endforeach
+            </x-tab>
+        @endforeach
     </x-tabs>
 </div>

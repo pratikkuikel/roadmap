@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Timeline extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function issue()
+    {
+        return $this->belongsTo(Issue::class);
+    }
 }

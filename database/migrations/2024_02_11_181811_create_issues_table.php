@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->date('target_date')->nullable();
-            $table->integer('upvotes')->default(0);
-            $table->integer('downvotes')->default(0);
-            $table->integer('fire')->default(0);
+            $table->integer('upvotes_count')->default(0);
+            $table->integer('downvotes_count')->default(0);
+            $table->integer('fire_count')->default(0);
             $table->timestamps();
         });
     }

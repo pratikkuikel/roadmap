@@ -63,7 +63,7 @@ class Home extends Component
     {
         return view('livewire.home', [
             'users' => $this->users(),
-            'headers' => $this->headers()
+            'headers' => $this->headers(),
         ]);
     }
 }

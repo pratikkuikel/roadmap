@@ -8,4 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($item) {
+            $item->user_id = auth()->id();
+        });
+    }
+
+    public function issue()
+    {
+        return $this->belongsTo(Issue::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

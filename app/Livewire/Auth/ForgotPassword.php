@@ -15,7 +15,7 @@ class ForgotPassword extends Component
     public function sendVerificationMail()
     {
         $this->validate([
-            'email' => 'required|email'
+            'email' => 'required|email',
         ]);
 
         $status = Password::sendResetLink(

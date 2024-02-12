@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Issue;
 
 class Tab extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 
     public function issues()
     {

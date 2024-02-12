@@ -18,6 +18,7 @@ class Unverified
         if ($request->user() && $request->user()->hasVerifiedEmail()) {
             return redirect('/'); // Redirect to home page or any other route
         }
+
         return $next($request);
     }
 }

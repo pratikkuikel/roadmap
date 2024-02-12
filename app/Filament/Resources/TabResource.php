@@ -3,27 +3,31 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\TabResource\Pages;
-use App\Filament\Resources\TabResource\RelationManagers;
 use App\Models\Tab;
-use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TabResource extends Resource
 {
     protected static ?string $model = Tab::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-archive-box';
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->withCount('issues');
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                TextInput::make('label'),
             ]);
     }
 
@@ -31,7 +35,9 @@ class TabResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('label'),
+                TextColumn::make('issues_count')
+                    ->label('Issues'),
             ])
             ->filters([
                 //

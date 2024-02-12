@@ -11,8 +11,6 @@
 </head>
 
 <body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
-
-    {{-- NAVBAR mobile only --}}
     <x-nav sticky class="lg:hidden">
         <x-slot:brand>
             <x-app-brand />
@@ -23,29 +21,25 @@
             </label>
         </x-slot:actions>
     </x-nav>
-
-    {{-- MAIN --}}
     <x-main full-width>
-        {{-- SIDEBAR --}}
         <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-100 lg:bg-inherit">
-
-            {{-- BRAND --}}
             <x-app-brand class="p-5 pt-3" />
-
-            {{-- MENU --}}
             <x-menu activate-by-route>
-
-                {{-- User --}}
                 @if ($user = auth()->user())
                     <x-list-item :item="$user" sub-value="username" no-separator no-hover
                         class="!-mx-2 mt-2 mb-5 border-y border-y-sky-900">
                         <x-slot:actions>
+                            <x-theme-toggle class="hidden" />
+                            <x-button tooltip="change mode" icon="o-moon" @click="$dispatch('mary-toggle-theme')" />
                             <x-button icon="o-power" link="{{ route('logout') }}" class="btn-circle btn-ghost btn-xs"
                                 tooltip-left="logout" />
                         </x-slot:actions>
                     </x-list-item>
                 @endif
-                <x-menu-item title="Home" icon="o-home" link="{{ route('home') }}" />
+                @guest
+                    <x-theme-toggle class="hidden" />
+                    <x-button tooltip="change mode" icon="o-moon" @click="$dispatch('mary-toggle-theme')" />
+                @endguest
                 <x-menu-item title="Roadmap" icon="o-bolt" link="{{ route('roadmap') }}" />
                 @guest
                     <x-menu-item title="Login" icon="o-lock-closed" link="{{ route('login') }}" />
@@ -53,14 +47,10 @@
                 @endguest
             </x-menu>
         </x-slot:sidebar>
-        {{-- The `$slot` goes here --}}
         <x-slot:content>
-            <x-theme-toggle class="btn btn-circle btn-ghost" />
             {{ $slot }}
         </x-slot:content>
     </x-main>
-
-    {{--  TOAST area --}}
     <x-toast />
 </body>
 

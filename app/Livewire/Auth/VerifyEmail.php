@@ -3,14 +3,14 @@
 namespace App\Livewire\Auth;
 
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
-use Livewire\Component;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Livewire\Component;
 use Mary\Traits\Toast;
 
 class VerifyEmail extends Component
 {
-    use WithRateLimiting;
     use Toast;
+    use WithRateLimiting;
 
     public function resendVerification()
     {
@@ -22,7 +22,7 @@ class VerifyEmail extends Component
 
         auth()->user()->sendEmailVerificationNotification();
 
-        $this->success("Verification Link sent, Please check your Mail");
+        $this->success('Verification Link sent, Please check your Mail');
     }
 
     public function render()

@@ -3,9 +3,10 @@
 namespace App\Filament\Resources\IssueResource\Pages;
 
 use App\Filament\Resources\IssueResource;
-use Filament\Resources\Pages\CreateRecord;
+use Filament\Actions;
+use Filament\Resources\Pages\ViewRecord;
 
-class CreateIssue extends CreateRecord
+class ViewIssue extends ViewRecord
 {
     protected static string $resource = IssueResource::class;
 }

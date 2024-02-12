@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, CanResetPassword;
+    use CanResetPassword, HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
         'name',
@@ -32,5 +32,13 @@ class User extends Authenticatable implements MustVerifyEmail
     public function votes()
     {
         return $this->hasMany(Vote::class);
+    }
+
+    public function hasVoted($id)
+    {
+        return $this->votes()
+            ->where('user_id', auth()->id())
+            ->where('issue_id', $id)
+            ->count();
     }
 }

@@ -2,31 +2,35 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TagResource\Pages;
-use App\Models\Tag;
-use Filament\Forms\Components\ColorPicker;
-use Filament\Forms\Components\TextInput;
+use App\Filament\Resources\UserResource\Pages;
+use App\Models\User;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\ColorColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class TagResource extends Resource
+class UserResource extends Resource
 {
-    protected static ?string $model = Tag::class;
+    protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getNavigationBadgeTooltip(): ?string
+    {
+        return 'The number of users';
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('label')
-                    ->required(),
-                ColorPicker::make('color')
-                    ->required(),
+                //
             ]);
     }
 
@@ -34,8 +38,10 @@ class TagResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('label'),
-                ColorColumn::make('color'),
+                TextColumn::make('name'),
+                TextColumn::make('email'),
+                TextColumn::make('created_at')
+                    ->date(),
             ])
             ->filters([
                 //
@@ -54,7 +60,7 @@ class TagResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageTags::route('/'),
+            'index' => Pages\ManageUsers::route('/'),
         ];
     }
 }

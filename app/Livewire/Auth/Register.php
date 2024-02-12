@@ -14,8 +14,11 @@ class Register extends Component
     use Toast;
 
     public $title = 'Register here to continue !';
+
     public ?string $name;
+
     public ?string $email;
+
     public ?string $password;
 
     public function register()

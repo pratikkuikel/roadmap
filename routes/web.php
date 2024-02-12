@@ -1,20 +1,32 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Auth\ResetPassword;
 use App\Livewire\Auth\VerifyEmail;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Livewire\Comment;
 use App\Livewire\Home;
 use App\Livewire\Roadmap;
+use App\Models\Tag;
+use App\Models\Timeline;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)
     ->name('home');
 
+Route::get('/timeline', function () {
+    // return Timeline::all();
+    return Tag::all();
+});
+
 Route::get('roadmap', Roadmap::class)
     ->name('roadmap');
+
+Route::get('roadmap/{issue_id}/comments', Comment::class)
+    ->name('comments');
+
 
 // Authentication Routes
 Route::get('login', Login::class)
